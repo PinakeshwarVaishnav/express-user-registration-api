@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import authRoutes from "./routes/auth.js";
+import searchRoute from "./routes/user.js";
 
 dotenv.config();
 const app = express();
@@ -23,6 +24,7 @@ mongoose
   );
 
 app.use("/api/auth", authRoutes);
+app.use("/api/search", searchRoute);
 
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
